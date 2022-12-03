@@ -25,8 +25,8 @@ class App extends Component {
     // this.notify = this.notify.bind(this);
     this.state = {
       account: '', //contract deployer account[0]
-      token: {}, //Deployed instance of EXN contract in KOVAN
-      usdt: {}, //Deployed instance of EXN contract in KOVAN
+      token: {}, //Deployed instance of GCN contract in KOVAN
+      usdt: {}, //Deployed instance of GCN contract in KOVAN
       ethSwap: {}, //Deployed instance of ethSwap contract in KOVAN
       ethBalance: '0',
       tokenBalance: '0',
@@ -54,10 +54,10 @@ class App extends Component {
     // await this.state.ethSwapWebSocket.events.TokensPurchased({})
     // .on('data', async (event) =>{
     //     let amount = event.returnValues._value.toString()
-    //     window.alert('EXN Token purchased: ' + window.web3.utils.fromWei(amount, 'Ether'))
-    //     console.log('EXN TokenPurchase tx confirmed \n')
+    //     window.alert('GCN Token purchased: ' + window.web3.utils.fromWei(amount, 'Ether'))
+    //     console.log('GCN TokenPurchase tx confirmed \n')
     //     console.log('From account: ', event.returnValues._from.toString())        
-    //     console.log('Amount in EXN: ', window.web3.utils.fromWei(amount, 'Ether') )
+    //     console.log('Amount in GCN: ', window.web3.utils.fromWei(amount, 'Ether') )
     //     this.setState({ lastReceivedEvent : event.returnValues})
     //     console.log(event.returnValues)    
     // })
@@ -70,10 +70,10 @@ class App extends Component {
     // await this.state.ethSwapWebSocket.events.TokensSold({})
     // .on('data', async (event) =>{
     //     let amount = event.returnValues._value.toString()
-    //     window.alert('EXN Token Sold: ' + window.web3.utils.fromWei(amount, 'Ether'))
-    //     console.log('EXN TokenPurchase tx confirmed \n')
+    //     window.alert('GCN Token Sold: ' + window.web3.utils.fromWei(amount, 'Ether'))
+    //     console.log('GCN TokenPurchase tx confirmed \n')
     //     console.log('From account: ', event.returnValues._from.toString())        
-    //     console.log('Amount in EXN: ', window.web3.utils.fromWei(amount, 'Ether') )
+    //     console.log('Amount in GCN: ', window.web3.utils.fromWei(amount, 'Ether') )
     //     this.setState({ lastReceivedEvent : event.returnValues})
     //     console.log(event.returnValues)        
     // })
@@ -112,7 +112,7 @@ class App extends Component {
      }     
   }
 
-  //Load EthSwap and EXN token instances via Metamask web3
+  //Load EthSwap and GCN token instances via Metamask web3
   async loadBlockchainData() {
     console.log("loadb start");
     // this.setState({loading : false})   
@@ -126,7 +126,7 @@ class App extends Component {
 
     console.log("bal" , ethBalance);
 
-    // Load EXN Token
+    // Load GCN Token
     const networkId =  await web3.eth.net.getId()
     // const tokenData = Token.networks[networkId]
     // if(tokenData) {
@@ -134,7 +134,7 @@ class App extends Component {
       this.setState({ token })
       let tokenBalance = await token.methods.balanceOf(this.state.account).call()
       this.setState({ tokenBalance: tokenBalance.toString() })
-    //  console.log("EXN Token address: ", tokenData.address)
+    //  console.log("GCN Token address: ", tokenData.address)
     // } else {
     //   window.alert('Token contract not deployed to detected network.')
     // }
@@ -166,7 +166,7 @@ class App extends Component {
       this.setState({ usdt })
       let tokenBalanceusdt = await usdt.methods.balanceOf(this.state.account).call()
       this.setState({ tokenBalanceusdt: tokenBalanceusdt.toString() })
-     // console.log("EXN Token address: ", tokenData.address)
+     // console.log("GCN Token address: ", tokenData.address)
      console.log("loadb end");
 
   }  
@@ -371,7 +371,7 @@ class App extends Component {
               <div className="content mr-auto ml-auto">
                 <a
                   href="http://alejoacosta.ar"
-                  tEXNet="_blank"
+                  tGCNet="_blank"
                   rel="noopener noreferrer"
                 >
                 </a>
